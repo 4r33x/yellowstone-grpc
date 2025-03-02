@@ -47,6 +47,7 @@ tonic-build = { workspace = true }
 [features]
 default = ["convert", "tonic", "tonic-compression"]
 convert = [
+    "dep:agave-geyser-plugin-interface",
     "dep:bincode",
     "dep:solana-account-decoder",
     "dep:solana-sdk",
