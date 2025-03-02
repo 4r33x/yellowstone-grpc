@@ -78,7 +78,7 @@ dependencies = [
 [[package]]
 name = "agave-geyser-plugin-interface"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 dependencies = [
  "log",
  "solana-clock",
@@ -3304,7 +3304,7 @@ dependencies = [
 [[package]]
 name = "solana-account-decoder"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 dependencies = [
  "Inflector",
  "base64 0.22.1",
@@ -3342,7 +3342,7 @@ dependencies = [
 [[package]]
 name = "solana-account-decoder-client-types"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 dependencies = [
  "base64 0.22.1",
  "bs58",
@@ -3510,7 +3510,7 @@ dependencies = [
 [[package]]
 name = "solana-compute-budget"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 dependencies = [
  "solana-fee-structure",
  "solana-program-entrypoint",
@@ -3532,7 +3532,7 @@ dependencies = [
 [[package]]
 name = "solana-config-program"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 dependencies = [
  "bincode",
  "chrono",
@@ -3941,7 +3941,7 @@ dependencies = [
 [[package]]
 name = "solana-log-collector"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 dependencies = [
  "log",
 ]
@@ -3960,7 +3960,7 @@ dependencies = [
 [[package]]
 name = "solana-measure"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 
 [[package]]
 name = "solana-message"
@@ -4240,7 +4240,7 @@ dependencies = [
 [[package]]
 name = "solana-program-runtime"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 dependencies = [
  "base64 0.22.1",
  "bincode",
@@ -4707,7 +4707,7 @@ dependencies = [
 [[package]]
 name = "solana-storage-proto"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 dependencies = [
  "bincode",
  "bs58",
@@ -4815,7 +4815,7 @@ checksum = "6af261afb0e8c39252a04d026e3ea9c405342b08c871a2ad8aa5448e068c784c"
 [[package]]
 name = "solana-timings"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 dependencies = [
  "eager",
  "enum-iterator",
@@ -4881,7 +4881,7 @@ dependencies = [
 [[package]]
 name = "solana-transaction-status"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 dependencies = [
  "Inflector",
  "base64 0.22.1",
@@ -4921,7 +4921,7 @@ dependencies = [
 [[package]]
 name = "solana-transaction-status-client-types"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 dependencies = [
  "base64 0.22.1",
  "bincode",
@@ -4943,7 +4943,7 @@ dependencies = [
 [[package]]
 name = "solana-type-overrides"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave#81649e602ca5431d356269c25020b6edc4f359e5"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ef92fff70e8f72f38d6f8c81f2e665c87477a785"
 dependencies = [
  "lazy_static",
  "rand 0.8.5",

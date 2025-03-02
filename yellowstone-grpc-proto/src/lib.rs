@@ -72,6 +72,22 @@ pub mod convert_to {
             message: Some(create_message(tx.message())),
         }
     }
+    use agave_geyser_plugin_interface::geyser_plugin_interface::TxnReplicaAccountInfo;
+    pub fn create_txn_accounts_states(
+        accounts: &Vec<(&[u8], TxnReplicaAccountInfo<'_>)>,
+    ) -> Vec<proto::TxnAccountInfo> {
+        accounts
+            .iter()
+            .map(|(pubkey, account)| proto::TxnAccountInfo {
+                lamports: account.lamports,
+                owner: account.owner.to_vec(),
+                rent_epoch: account.rent_epoch,
+                pubkey: pubkey.to_vec(),
+                data: account.data.to_vec(),
+                executable: account.executable,
+            })
+            .collect()
+    }
 
     pub fn create_message(message: &SanitizedMessage) -> proto::Message {
         match message {
@@ -299,6 +315,7 @@ pub mod convert_to {
 
 #[cfg(feature = "convert")]
 pub mod convert_from {
+
     use {
         super::prelude as proto,
         solana_account_decoder::parse_token::UiTokenAmount,
@@ -321,7 +338,6 @@ pub mod convert_from {
             TransactionWithStatusMeta, VersionedTransactionWithStatusMeta,
         },
     };
-
     type CreateResult<T> = Result<T, &'static str>;
 
     pub fn create_block(block: proto::SubscribeUpdateBlock) -> CreateResult<ConfirmedBlock> {
