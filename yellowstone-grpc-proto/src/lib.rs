@@ -42,6 +42,7 @@ pub mod plugin;
 
 #[cfg(feature = "convert")]
 pub mod convert_to {
+    use agave_geyser_plugin_interface::geyser_plugin_interface::TxnReplicaAccountInfo;
     use {
         super::prelude as proto,
         solana_sdk::{
@@ -72,7 +73,7 @@ pub mod convert_to {
             message: Some(create_message(tx.message())),
         }
     }
-    use agave_geyser_plugin_interface::geyser_plugin_interface::TxnReplicaAccountInfo;
+
     pub fn create_txn_accounts_states(
         accounts: &Vec<(&[u8], TxnReplicaAccountInfo<'_>)>,
     ) -> Vec<proto::TxnAccountInfo> {
