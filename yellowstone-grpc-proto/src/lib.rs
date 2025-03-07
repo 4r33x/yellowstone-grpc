@@ -75,7 +75,7 @@ pub mod convert_to {
     }
 
     pub fn create_txn_accounts_states(
-        accounts: &Vec<(&[u8], TxnReplicaAccountInfo<'_>)>,
+        accounts: &[(&[u8], TxnReplicaAccountInfo<'_>)],
     ) -> Vec<proto::TxnAccountInfo> {
         accounts
             .iter()
