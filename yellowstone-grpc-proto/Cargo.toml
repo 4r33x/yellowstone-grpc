@@ -33,6 +33,7 @@ smallvec = { workspace = true, optional = true }
 spl-token-2022 = { workspace = true, optional = true }
 thiserror = { workspace = true, optional = true }
 tonic = { workspace = true, optional = true }
+solana-account = "2.2.1"
 
 [dev-dependencies]
 criterion = { workspace = true }

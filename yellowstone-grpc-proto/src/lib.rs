@@ -42,7 +42,8 @@ pub mod plugin;
 
 #[cfg(feature = "convert")]
 pub mod convert_to {
-    use agave_geyser_plugin_interface::geyser_plugin_interface::TxnReplicaAccountInfo;
+    use solana_account::AccountSharedData;
+    use solana_account::ReadableAccount;
     use {
         super::prelude as proto,
         solana_sdk::{
@@ -75,17 +76,17 @@ pub mod convert_to {
     }
 
     pub fn create_txn_accounts_states(
-        accounts: &[(&[u8], TxnReplicaAccountInfo<'_>)],
+        accounts: &[(Pubkey, AccountSharedData)],
     ) -> Vec<proto::TxnAccountInfo> {
         accounts
             .iter()
             .map(|(pubkey, account)| proto::TxnAccountInfo {
-                lamports: account.lamports,
-                owner: account.owner.to_vec(),
-                rent_epoch: account.rent_epoch,
-                pubkey: pubkey.to_vec(),
-                data: account.data.to_vec(),
-                executable: account.executable,
+                lamports: account.lamports(),
+                owner: account.owner().as_array().to_vec(),
+                rent_epoch: account.rent_epoch(),
+                pubkey: pubkey.as_array().to_vec(),
+                data: account.data().to_vec(),
+                executable: account.executable(),
             })
             .collect()
     }
