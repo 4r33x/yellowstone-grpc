@@ -33,7 +33,7 @@ smallvec = { workspace = true, optional = true }
 spl-token-2022 = { workspace = true, optional = true }
 thiserror = { workspace = true, optional = true }
 tonic = { workspace = true, optional = true }
-solana-account = "2.2.1"
+solana-account = { workspace = true, optional = true}
 
 [dev-dependencies]
 criterion = { workspace = true }
@@ -64,7 +64,8 @@ plugin = [
     "dep:smallvec",
     "dep:spl-token-2022",
     "dep:thiserror",
-    "dep:tonic"
+    "dep:tonic",
+    "dep:solana-account"
 ]
 plugin-bench = ["plugin", "dep:prost_011", "dep:solana-storage-proto"]
 tonic = ["dep:tonic"]
