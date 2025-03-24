@@ -52,7 +52,8 @@ convert = [
     "dep:bincode",
     "dep:solana-account-decoder",
     "dep:solana-sdk",
-    "dep:solana-transaction-status"
+    "dep:solana-transaction-status",
+    "dep:solana-account"
 ]
 plugin = [
     "convert",
