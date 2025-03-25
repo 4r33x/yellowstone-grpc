@@ -6442,6 +6442,7 @@ dependencies = [
  "solana-account-decoder",
  "solana-sdk",
  "solana-storage-proto",
+ "solana-transaction-context",
  "solana-transaction-status",
  "spl-token-2022 7.0.0",
  "thiserror 1.0.69",

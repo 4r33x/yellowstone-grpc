@@ -34,7 +34,7 @@ spl-token-2022 = { workspace = true, optional = true }
 thiserror = { workspace = true, optional = true }
 tonic = { workspace = true, optional = true }
 solana-account = { workspace = true, optional = true}
-
+solana-transaction-context= { workspace = true, optional = true}
 [dev-dependencies]
 criterion = { workspace = true }
 prost_011 = { workspace = true }
@@ -53,7 +53,8 @@ convert = [
     "dep:solana-account-decoder",
     "dep:solana-sdk",
     "dep:solana-transaction-status",
-    "dep:solana-account"
+    "dep:solana-account",
+    "solana-transaction-context"
 ]
 plugin = [
     "convert",
@@ -66,7 +67,8 @@ plugin = [
     "dep:spl-token-2022",
     "dep:thiserror",
     "dep:tonic",
-    "dep:solana-account"
+    "dep:solana-account",
+    "solana-transaction-context"
 ]
 plugin-bench = ["plugin", "dep:prost_011", "dep:solana-storage-proto"]
 tonic = ["dep:tonic"]
