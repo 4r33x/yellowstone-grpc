@@ -1,3 +1,5 @@
+use tonic::service::InterceptorLayer;
+
 use {
     crate::{
         config::{ConfigGrpc, ConfigTokio},
@@ -28,7 +30,6 @@ use {
     },
     tokio_stream::wrappers::ReceiverStream,
     tonic::{
-        service::interceptor::interceptor,
         transport::{
             server::{Server, TcpIncoming},
             Identity, ServerTlsConfig,
@@ -357,12 +358,7 @@ impl GrpcService {
         Arc<Notify>,
     )> {
         // Bind service address
-        let incoming = TcpIncoming::new(
-            config.address,
-            true,                          // tcp_nodelay
-            Some(Duration::from_secs(20)), // tcp_keepalive
-        )
-        .map_err(|error| anyhow::anyhow!(error))?;
+        let incoming = TcpIncoming::bind(config.address).map_err(|error| anyhow::anyhow!(error))?;
 
         // Snapshot channel
         let (snapshot_tx, snapshot_rx) = match config.snapshot_plugin_channel_capacity {
@@ -484,7 +480,7 @@ impl GrpcService {
             health_reporter.set_serving::<GeyserServer<Self>>().await;
 
             server_builder
-                .layer(interceptor(move |request: Request<()>| {
+                .layer(InterceptorLayer::new(move |request: Request<()>| {
                     if let Some(x_token) = &config.x_token {
                         match request.metadata().get("x-token") {
                             Some(token) if x_token == token => Ok(request),
