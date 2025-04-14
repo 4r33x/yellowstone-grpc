@@ -4347,7 +4347,7 @@ dependencies = [
  "solana-system-transaction",
  "solana-time-utils",
  "solana-transaction",
- "solana-transaction-context 2.2.1",
+ "solana-transaction-context",
  "solana-transaction-error",
  "solana-validator-exit",
  "thiserror 2.0.12",
@@ -4606,7 +4606,7 @@ dependencies = [
  "solana-serde",
  "solana-signature",
  "solana-transaction",
- "solana-transaction-context 2.3.0",
+ "solana-transaction-context",
  "solana-transaction-error",
  "solana-transaction-status",
  "tonic-build 0.9.2",
@@ -4725,22 +4725,6 @@ dependencies = [
 
 [[package]]
 name = "solana-transaction-context"
-version = "2.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5022de04cbba05377f68bf848c8c1322ead733f88a657bf792bb40f3257b8218"
-dependencies = [
- "bincode",
- "serde",
- "serde_derive",
- "solana-account",
- "solana-instruction",
- "solana-pubkey",
- "solana-rent",
- "solana-signature",
-]
-
-[[package]]
-name = "solana-transaction-context"
 version = "2.3.0"
 source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#3aa92d74f1c56dbdde09349bc05be06c636ae3ba"
 dependencies = [
@@ -4828,7 +4812,7 @@ dependencies = [
  "solana-reward-info",
  "solana-signature",
  "solana-transaction",
- "solana-transaction-context 2.3.0",
+ "solana-transaction-context",
  "solana-transaction-error",
  "thiserror 2.0.12",
 ]
@@ -6500,7 +6484,7 @@ dependencies = [
  "solana-account-decoder",
  "solana-sdk",
  "solana-storage-proto",
- "solana-transaction-context 2.3.0",
+ "solana-transaction-context",
  "solana-transaction-status",
  "spl-token-2022 7.0.0",
  "thiserror 1.0.69",

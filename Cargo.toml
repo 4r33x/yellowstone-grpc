@@ -86,4 +86,4 @@ codegen-units = 1
 
 [patch.crates-io]
 solana-zk-sdk = {git = "https://github.com/4r33x/agave",  branch = "geyser_txn_accounts_data"}
-#solana-transaction-context = { git = "https://github.com/4r33x/agave", branch = "geyser_txn_accounts_data"}
+solana-transaction-context = { git = "https://github.com/4r33x/agave", branch = "geyser_txn_accounts_data"}
