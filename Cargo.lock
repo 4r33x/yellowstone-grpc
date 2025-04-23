@@ -78,7 +78,7 @@ dependencies = [
 [[package]]
 name = "agave-feature-set"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#3aa92d74f1c56dbdde09349bc05be06c636ae3ba"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ce98f88d723c64a35d191e5acf36be0173610476"
 dependencies = [
  "ahash",
  "solana-epoch-schedule",
@@ -90,7 +90,7 @@ dependencies = [
 [[package]]
 name = "agave-geyser-plugin-interface"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#3aa92d74f1c56dbdde09349bc05be06c636ae3ba"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ce98f88d723c64a35d191e5acf36be0173610476"
 dependencies = [
  "log",
  "solana-account",
@@ -105,7 +105,7 @@ dependencies = [
 [[package]]
 name = "agave-reserved-account-keys"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#3aa92d74f1c56dbdde09349bc05be06c636ae3ba"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ce98f88d723c64a35d191e5acf36be0173610476"
 dependencies = [
  "agave-feature-set",
  "lazy_static",
@@ -120,7 +120,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e89da841a80418a9b391ebaea17f5c112ffaaa96f621d2c285b5174da76b9011"
 dependencies = [
  "cfg-if",
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
  "once_cell",
  "version_check",
  "zerocopy 0.7.35",
@@ -436,7 +436,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b62ddb9cb1ec0a098ad4bbf9344d0713fa193ae1a80af55febcff2627b6a00c1"
 dependencies = [
  "futures-core",
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
  "instant",
  "pin-project-lite",
  "rand 0.8.5",
@@ -490,9 +490,9 @@ dependencies = [
 
 [[package]]
 name = "blake3"
-version = "1.8.1"
+version = "1.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "389a099b34312839e16420d499a9cad9650541715937ffbdd40d36f49e77eeb3"
+checksum = "3888aaa89e4b2a40fca9848e400f6a658a5a3978de7be858e209cafa8be9a4a0"
 dependencies = [
  "arrayref",
  "arrayvec",
@@ -750,9 +750,9 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "4.5.36"
+version = "4.5.37"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2df961d8c8a0d08aa9945718ccf584145eee3f3aa06cddbeac12933781102e04"
+checksum = "eccb054f56cbd38340b380d4a8e69ef1f02f1af43db2f0cc817a4774d80ae071"
 dependencies = [
  "clap_builder",
  "clap_derive",
@@ -760,9 +760,9 @@ dependencies = [
 
 [[package]]
 name = "clap_builder"
-version = "4.5.36"
+version = "4.5.37"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "132dbda40fb6753878316a489d5a1242a8ef2f0d9e47ba01c951ea8aa7d013a5"
+checksum = "efd9466fac8543255d3b1fcad4762c5e116ffe808c8a3043d4263cd4fd4862a2"
 dependencies = [
  "anstream",
  "anstyle",
@@ -1436,9 +1436,9 @@ dependencies = [
 
 [[package]]
 name = "getrandom"
-version = "0.2.15"
+version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c4567c8db10ae91089c99af84c68c38da3ec2f087c3f82960bcdbf3656b6f4d7"
+checksum = "335ff9f135e4384c8150d6f27c6daed433577f86b4750418338c01a1a2528592"
 dependencies = [
  "cfg-if",
  "js-sys",
@@ -1487,9 +1487,9 @@ dependencies = [
 
 [[package]]
 name = "h2"
-version = "0.4.8"
+version = "0.4.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5017294ff4bb30944501348f6f8e42e6ad28f42c8bbef7a74029aff064a4e3c2"
+checksum = "75249d144030531f8dee69fe9cea04d3edf809a017ae445e2abdff6629e86633"
 dependencies = [
  "atomic-waker",
  "bytes",
@@ -1996,9 +1996,9 @@ checksum = "4a5f13b858c8d314ee3e8f639011f7ccefe71f97f96e50151fb991f267928e2c"
 
 [[package]]
 name = "jiff"
-version = "0.2.8"
+version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e5ad87c89110f55e4cd4dc2893a9790820206729eaf221555f742d540b0724a0"
+checksum = "5a064218214dc6a10fbae5ec5fa888d80c45d611aba169222fc272072bf7aef6"
 dependencies = [
  "jiff-static",
  "log",
@@ -2009,9 +2009,9 @@ dependencies = [
 
 [[package]]
 name = "jiff-static"
-version = "0.2.8"
+version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d076d5b64a7e2fe6f0743f02c43ca4a6725c0f904203bfe276a5b3e793103605"
+checksum = "199b7932d97e325aff3a7030e141eafe7f2c6268e1d1b24859b753a627f45254"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2065,9 +2065,9 @@ checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
 
 [[package]]
 name = "libc"
-version = "0.2.171"
+version = "0.2.172"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c19937216e9d3aa9956d9bb8dfc0b0c8beb6058fc4f7a4dc4d850edf86a237d6"
+checksum = "d750af042f7ef4f724306de029d18836c26c1765a54a6a3f094cbd23a7267ffa"
 
 [[package]]
 name = "libsecp256k1"
@@ -2611,9 +2611,9 @@ dependencies = [
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.94"
+version = "1.0.95"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a31971752e70b8b2686d7e46ec17fb38dad4051d94024c88df49b667caea9c84"
+checksum = "02b3e5e68a3a1a02aad3ec490a98007cbc13c37cbe84a3cd7b8e406d76e7f778"
 dependencies = [
  "unicode-ident",
 ]
@@ -2837,7 +2837,7 @@ version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
 dependencies = [
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
 ]
 
 [[package]]
@@ -2915,7 +2915,7 @@ checksum = "a4689e6c2294d81e88dc6261c768b63bc4fcdb852be6d1352498b114f61383b7"
 dependencies = [
  "cc",
  "cfg-if",
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
  "libc",
  "untrusted",
  "windows-sys 0.52.0",
@@ -3207,9 +3207,9 @@ dependencies = [
 
 [[package]]
 name = "signal-hook-registry"
-version = "1.4.2"
+version = "1.4.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a9e9e0b4211b72e7b8b6e85c807d36c212bdb33ea8587f7569562a84df5465b1"
+checksum = "9203b8055f63a2a00e2f593bb0510367fe707d7ff1e5c872de2f537b339e5410"
 dependencies = [
  "libc",
 ]
@@ -3272,7 +3272,7 @@ dependencies = [
 [[package]]
 name = "solana-account-decoder"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#3aa92d74f1c56dbdde09349bc05be06c636ae3ba"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ce98f88d723c64a35d191e5acf36be0173610476"
 dependencies = [
  "Inflector",
  "base64 0.22.1",
@@ -3314,7 +3314,7 @@ dependencies = [
 [[package]]
 name = "solana-account-decoder-client-types"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#3aa92d74f1c56dbdde09349bc05be06c636ae3ba"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ce98f88d723c64a35d191e5acf36be0173610476"
 dependencies = [
  "base64 0.22.1",
  "bs58",
@@ -3521,9 +3521,9 @@ dependencies = [
 
 [[package]]
 name = "solana-curve25519"
-version = "2.2.8"
+version = "2.2.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7d9499a822cd1acdac4fcec1acb500819f84b2f83042d6ae0d19cc45b32747f9"
+checksum = "1de13796959f32e52eb2d59a0dbfe0d55ee59b07e04b0ae5648e07ba1082dd98"
 dependencies = [
  "bytemuck",
  "bytemuck_derive",
@@ -3776,7 +3776,7 @@ checksum = "9ce496a475e5062ba5de97215ab39d9c358f9c9df4bb7f3a45a1f1a8bd9065ed"
 dependencies = [
  "bincode",
  "borsh 1.5.7",
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
  "js-sys",
  "num-traits",
  "serde",
@@ -4060,7 +4060,7 @@ dependencies = [
  "bytemuck",
  "console_error_panic_hook",
  "console_log",
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
  "lazy_static",
  "log",
  "memoffset",
@@ -4192,7 +4192,7 @@ dependencies = [
  "bytemuck_derive",
  "curve25519-dalek 4.1.3",
  "five8_const",
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
  "js-sys",
  "num-traits",
  "rand 0.8.5",
@@ -4591,7 +4591,7 @@ dependencies = [
 [[package]]
 name = "solana-storage-proto"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#3aa92d74f1c56dbdde09349bc05be06c636ae3ba"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ce98f88d723c64a35d191e5acf36be0173610476"
 dependencies = [
  "bincode",
  "bs58",
@@ -4726,7 +4726,7 @@ dependencies = [
 [[package]]
 name = "solana-transaction-context"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#3aa92d74f1c56dbdde09349bc05be06c636ae3ba"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ce98f88d723c64a35d191e5acf36be0173610476"
 dependencies = [
  "bincode",
  "serde",
@@ -4754,7 +4754,7 @@ dependencies = [
 [[package]]
 name = "solana-transaction-status"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#3aa92d74f1c56dbdde09349bc05be06c636ae3ba"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ce98f88d723c64a35d191e5acf36be0173610476"
 dependencies = [
  "Inflector",
  "agave-reserved-account-keys",
@@ -4798,7 +4798,7 @@ dependencies = [
 [[package]]
 name = "solana-transaction-status-client-types"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#3aa92d74f1c56dbdde09349bc05be06c636ae3ba"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ce98f88d723c64a35d191e5acf36be0173610476"
 dependencies = [
  "base64 0.22.1",
  "bincode",
@@ -4825,9 +4825,9 @@ checksum = "7bbf6d7a3c0b28dd5335c52c0e9eae49d0ae489a8f324917faf0ded65a812c1d"
 
 [[package]]
 name = "solana-vote-interface"
-version = "2.2.3"
+version = "2.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6b630547b7f12ee742e1c5069951fedba0fe5cbd4786f6342a779384e2b11f71"
+checksum = "78f039b0788337bedc6c5450d2f237718f938defb5ce0e0ad8ef507e78dcd370"
 dependencies = [
  "bincode",
  "num-derive",
@@ -4850,7 +4850,7 @@ dependencies = [
 [[package]]
 name = "solana-zk-sdk"
 version = "2.3.0"
-source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#3aa92d74f1c56dbdde09349bc05be06c636ae3ba"
+source = "git+https://github.com/4r33x/agave?branch=geyser_txn_accounts_data#ce98f88d723c64a35d191e5acf36be0173610476"
 dependencies = [
  "aes-gcm-siv",
  "base64 0.22.1",
