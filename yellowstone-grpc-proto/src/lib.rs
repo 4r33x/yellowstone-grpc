@@ -42,6 +42,8 @@ pub mod plugin;
 
 #[cfg(feature = "convert")]
 pub mod convert_to {
+    use solana_account::AccountSharedData;
+    use solana_account::ReadableAccount;
     use {
         super::prelude as proto,
         solana_sdk::{
@@ -71,6 +73,22 @@ pub mod convert_to {
                 .collect(),
             message: Some(create_message(tx.message())),
         }
+    }
+
+    pub fn create_txn_accounts_states(
+        accounts: &[(Pubkey, AccountSharedData)],
+    ) -> Vec<proto::TxnAccountInfo> {
+        accounts
+            .iter()
+            .map(|(pubkey, account)| proto::TxnAccountInfo {
+                lamports: account.lamports(),
+                owner: account.owner().as_array().to_vec(),
+                rent_epoch: account.rent_epoch(),
+                pubkey: pubkey.as_array().to_vec(),
+                data: account.data().to_vec(),
+                executable: account.executable(),
+            })
+            .collect()
     }
 
     pub fn create_message(message: &SanitizedMessage) -> proto::Message {
@@ -149,6 +167,7 @@ pub mod convert_to {
             loaded_addresses,
             return_data,
             compute_units_consumed,
+            cost_units,
         } = meta;
         let err = create_transaction_error(status);
         let inner_instructions_none = inner_instructions.is_none();
@@ -299,6 +318,7 @@ pub mod convert_to {
 
 #[cfg(feature = "convert")]
 pub mod convert_from {
+
     use {
         super::prelude as proto,
         solana_account_decoder::parse_token::UiTokenAmount,
@@ -321,7 +341,6 @@ pub mod convert_from {
             TransactionWithStatusMeta, VersionedTransactionWithStatusMeta,
         },
     };
-
     type CreateResult<T> = Result<T, &'static str>;
 
     pub fn create_block(block: proto::SubscribeUpdateBlock) -> CreateResult<ConfirmedBlock> {
@@ -499,6 +518,7 @@ pub mod convert_from {
                 })
             },
             compute_units_consumed: meta.compute_units_consumed,
+            cost_units: None,
         })
     }
 

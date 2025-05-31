@@ -1170,6 +1170,7 @@ mod tests {
             loaded_addresses: LoadedAddresses::default(),
             return_data: None,
             compute_units_consumed: None,
+            cost_units: None,
         });
         let sig = sanitized_transaction.signature();
         let account_keys = sanitized_transaction
@@ -1186,6 +1187,7 @@ mod tests {
                 meta,
                 index: 1,
                 account_keys,
+                post_accounts_states: vec![],
             }),
             slot: 100,
             created_at: Timestamp::from(SystemTime::now()),

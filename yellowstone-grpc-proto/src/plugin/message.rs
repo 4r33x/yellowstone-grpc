@@ -10,7 +10,7 @@ use {
         solana::storage::confirmed_block,
     },
     agave_geyser_plugin_interface::geyser_plugin_interface::{
-        ReplicaAccountInfoV3, ReplicaBlockInfoV4, ReplicaEntryInfoV2, ReplicaTransactionInfoV2,
+        ReplicaAccountInfoV3, ReplicaBlockInfoV4, ReplicaEntryInfoV2, ReplicaTransactionInfoV3,
         SlotStatus as GeyserSlotStatus,
     },
     prost_types::Timestamp,
@@ -271,10 +271,11 @@ pub struct MessageTransactionInfo {
     pub meta: confirmed_block::TransactionStatusMeta,
     pub index: usize,
     pub account_keys: HashSet<Pubkey>,
+    pub post_accounts_states: Vec<crate::prelude::TxnAccountInfo>,
 }
 
 impl MessageTransactionInfo {
-    pub fn from_geyser(info: &ReplicaTransactionInfoV2<'_>) -> Self {
+    pub fn from_geyser(info: &ReplicaTransactionInfoV3<'_>) -> Self {
         let account_keys = info
             .transaction
             .message()
@@ -290,6 +291,7 @@ impl MessageTransactionInfo {
             meta: convert_to::create_transaction_meta(info.transaction_status_meta),
             index: info.index,
             account_keys,
+            post_accounts_states: convert_to::create_txn_accounts_states(info.post_accounts_states),
         }
     }
 
@@ -304,6 +306,7 @@ impl MessageTransactionInfo {
             meta: msg.meta.ok_or("meta message should be defined")?,
             index: msg.index as usize,
             account_keys: HashSet::new(),
+            post_accounts_states: msg.post_accounts_states,
         })
     }
 
@@ -347,7 +350,7 @@ pub struct MessageTransaction {
 }
 
 impl MessageTransaction {
-    pub fn from_geyser(info: &ReplicaTransactionInfoV2<'_>, slot: Slot) -> Self {
+    pub fn from_geyser(info: &ReplicaTransactionInfoV3<'_>, slot: Slot) -> Self {
         Self {
             transaction: Arc::new(MessageTransactionInfo::from_geyser(info)),
             slot,

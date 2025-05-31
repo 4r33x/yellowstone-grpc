@@ -167,6 +167,16 @@ message SubscribeUpdateTransactionInfo {
   solana.storage.ConfirmedBlock.Transaction transaction = 3;
   solana.storage.ConfirmedBlock.TransactionStatusMeta meta = 4;
   uint64 index = 5;
+  repeated TxnAccountInfo post_accounts_states = 6;
+}
+
+message TxnAccountInfo {
+  bytes pubkey = 1;
+  uint64 lamports = 2;
+  bytes owner = 3;
+  bool executable = 4;
+  uint64 rent_epoch = 5;
+  bytes data = 6;
 }
 
 message SubscribeUpdateTransactionStatus {
