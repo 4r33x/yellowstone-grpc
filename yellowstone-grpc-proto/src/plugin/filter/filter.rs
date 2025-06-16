@@ -1124,10 +1124,10 @@ mod tests {
         prost_types::Timestamp,
         solana_sdk::{
             hash::Hash,
-            message::{v0::LoadedAddresses, Message as SolMessage, MessageHeader},
+            message::{v0::LoadedAddresses, AccountKeys, Message as SolMessage, MessageHeader},
             pubkey::Pubkey,
             signer::{keypair::Keypair, Signer},
-            transaction::{SanitizedTransaction, Transaction},
+            transaction::{SanitizedTransaction, Transaction, VersionedTransaction},
         },
         solana_transaction_status::TransactionStatusMeta,
         std::{
@@ -1154,9 +1154,8 @@ mod tests {
             ..SolMessage::default()
         };
         let recent_blockhash = Hash::default();
-        let sanitized_transaction = SanitizedTransaction::from_transaction_for_tests(
-            Transaction::new(&[keypair], message, recent_blockhash),
-        );
+        let transaction: VersionedTransaction =
+            Transaction::new(&[keypair], message, recent_blockhash).into();
         let meta = convert_to::create_transaction_meta(&TransactionStatusMeta {
             status: Ok(()),
             fee: 0,
@@ -1172,18 +1171,17 @@ mod tests {
             compute_units_consumed: None,
             cost_units: None,
         });
-        let sig = sanitized_transaction.signature();
-        let account_keys = sanitized_transaction
-            .message()
-            .account_keys()
-            .iter()
-            .copied()
-            .collect();
+        let dyn_keys = LoadedAddresses::default();
+        let sig = transaction.signatures[0];
+        let account_keys =
+            AccountKeys::new(transaction.message.static_account_keys(), Some(&dyn_keys));
+        let account_keys = account_keys.iter().copied().collect();
+
         MessageTransaction {
             transaction: Arc::new(MessageTransactionInfo {
-                signature: *sig,
+                signature: sig,
                 is_vote: true,
-                transaction: convert_to::create_transaction(&sanitized_transaction),
+                transaction: convert_to::create_transaction(&transaction),
                 meta,
                 index: 1,
                 account_keys,

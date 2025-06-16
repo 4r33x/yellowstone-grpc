@@ -17,6 +17,7 @@ use {
     solana_sdk::{
         clock::Slot,
         hash::{Hash, HASH_BYTES},
+        message::{v0::LoadedAddresses, AccountKeys},
         pubkey::Pubkey,
         signature::Signature,
     },
@@ -276,13 +277,11 @@ pub struct MessageTransactionInfo {
 
 impl MessageTransactionInfo {
     pub fn from_geyser(info: &ReplicaTransactionInfoV3<'_>) -> Self {
-        let account_keys = info
-            .transaction
-            .message()
-            .account_keys()
-            .iter()
-            .copied()
-            .collect();
+        let account_keys = AccountKeys::new(
+            info.transaction.message.static_account_keys(),
+            Some(&info.transaction_status_meta.loaded_addresses),
+        );
+        let account_keys = account_keys.iter().copied().collect();
 
         Self {
             signature: *info.signature,

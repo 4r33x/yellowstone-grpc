@@ -42,36 +42,32 @@ pub mod plugin;
 
 #[cfg(feature = "convert")]
 pub mod convert_to {
-    use solana_account::AccountSharedData;
-    use solana_account::ReadableAccount;
     use {
         super::prelude as proto,
+        solana_account::{AccountSharedData, ReadableAccount},
         solana_sdk::{
             clock::UnixTimestamp,
             instruction::CompiledInstruction,
-            message::{
-                v0::{LoadedMessage, MessageAddressTableLookup},
-                LegacyMessage, MessageHeader, SanitizedMessage,
-            },
+            message::{v0::MessageAddressTableLookup, MessageHeader, VersionedMessage},
             pubkey::Pubkey,
             signature::Signature,
-            transaction::{SanitizedTransaction, TransactionError},
-            transaction_context::TransactionReturnData,
+            transaction::{TransactionError, VersionedTransaction},
         },
+        solana_transaction_context::TransactionReturnData,
         solana_transaction_status::{
             InnerInstruction, InnerInstructions, Reward, RewardType, TransactionStatusMeta,
             TransactionTokenBalance,
         },
     };
 
-    pub fn create_transaction(tx: &SanitizedTransaction) -> proto::Transaction {
+    pub fn create_transaction(tx: &VersionedTransaction) -> proto::Transaction {
         proto::Transaction {
             signatures: tx
-                .signatures()
+                .signatures
                 .iter()
                 .map(|signature| <Signature as AsRef<[u8]>>::as_ref(signature).into())
                 .collect(),
-            message: Some(create_message(tx.message())),
+            message: Some(create_message(&tx.message)),
         }
     }
 
@@ -91,9 +87,9 @@ pub mod convert_to {
             .collect()
     }
 
-    pub fn create_message(message: &SanitizedMessage) -> proto::Message {
+    pub fn create_message(message: &VersionedMessage) -> proto::Message {
         match message {
-            SanitizedMessage::Legacy(LegacyMessage { message, .. }) => proto::Message {
+            VersionedMessage::Legacy(message) => proto::Message {
                 header: Some(create_header(&message.header)),
                 account_keys: create_pubkeys(&message.account_keys),
                 recent_blockhash: message.recent_blockhash.to_bytes().into(),
@@ -101,7 +97,7 @@ pub mod convert_to {
                 versioned: false,
                 address_table_lookups: vec![],
             },
-            SanitizedMessage::V0(LoadedMessage { message, .. }) => proto::Message {
+            VersionedMessage::V0(message) => proto::Message {
                 header: Some(create_header(&message.header)),
                 account_keys: create_pubkeys(&message.account_keys),
                 recent_blockhash: message.recent_blockhash.to_bytes().into(),
@@ -333,8 +329,8 @@ pub mod convert_from {
             pubkey::Pubkey,
             signature::Signature,
             transaction::{TransactionError, VersionedTransaction},
-            transaction_context::TransactionReturnData,
         },
+        solana_transaction_context::TransactionReturnData,
         solana_transaction_status::{
             ConfirmedBlock, InnerInstruction, InnerInstructions, Reward, RewardType,
             RewardsAndNumPartitions, TransactionStatusMeta, TransactionTokenBalance,

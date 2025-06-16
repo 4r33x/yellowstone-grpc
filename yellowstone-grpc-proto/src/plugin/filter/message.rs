@@ -1162,18 +1162,10 @@ pub mod tests {
                         let TransactionWithStatusMeta::Complete(tx) = tx else {
                             panic!("tx with missed meta");
                         };
-                        let transaction = SanitizedTransaction::try_create(
-                            tx.transaction.clone(),
-                            MessageHash::Compute,
-                            None,
-                            SimpleAddressLoader::Disabled,
-                            &HashSet::new(),
-                        )
-                        .expect("failed to create tx");
                         MessageTransactionInfo {
                             signature: tx.transaction.signatures[0],
                             is_vote: true,
-                            transaction: convert_to::create_transaction(&transaction),
+                            transaction: convert_to::create_transaction(&tx.transaction),
                             meta: convert_to::create_transaction_meta(&tx.meta),
                             index,
                             account_keys: HashSet::new(),
